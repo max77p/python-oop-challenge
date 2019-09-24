@@ -11,8 +11,15 @@ class Account:
         self.amount=self.amount+dep
         return str(self.amount)
     def withdraw(self,dep):
-            self.amount=self.amount-dep
-            return str(self.amount)
+            tempvar=self.amount
+            tempvar=tempvar-dep
+            if tempvar<=0:
+                print("funds unavailable!")
+                return self.amount
+            else:
+                self.amount=tempvar
+                # print("withdrawn")
+                return self.amount
 
 # 1. Instantiate the class
 acct1 = Account('Jose',100)
@@ -37,5 +44,5 @@ print(acct1.withdraw(75))
 
 
 # # 6. Make a withdrawal that exceeds the available balance
-# acct1.withdraw(500)
+print(acct1.withdraw(5000))
 
